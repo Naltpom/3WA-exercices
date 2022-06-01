@@ -1,0 +1,15 @@
+{
+    "name": "php/solid",
+    "autoload": {
+        "psr-4": {
+            "Config\\": "config/",
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nathan PROVOST",
+            "email": "nathan.provost78990@gmail.com"
+        }
+    ]
+}
