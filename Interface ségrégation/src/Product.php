@@ -14,7 +14,7 @@ abstract class Product implements ProductInterface
 
     public function getPrice(): float
     {
-        return round($this->price, PRECISION);
+        return round($this->price, (int) $_ENV['PRECISION']);
     }
 
     public function setPrice(float $price): void

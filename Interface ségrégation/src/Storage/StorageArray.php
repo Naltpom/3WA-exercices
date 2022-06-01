@@ -10,11 +10,11 @@ class StorageArray implements StorageInterface
 
     public function setValue(string $name, float $total): void
     {
-        $this->storage[$name] = $this->storage[$name] ?? 0 + $total;
+        $this->storage[$name] = ($this->storage[$name] ?? 0) + $total;
     }
 
     public function total(): float
     {
-        return round(array_sum($this->storage), PRECISION);
+        return round(array_sum($this->storage), (int) $_ENV['PRECISION']);
     }
 }

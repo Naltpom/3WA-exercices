@@ -11,5 +11,8 @@
             "name": "Nathan PROVOST",
             "email": "nathan.provost78990@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
 }

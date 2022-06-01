@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Storage;
 
-use Config\Init;
-
 class StorageDb implements StorageInterface
 {
     private array $storage = [];
@@ -22,7 +20,7 @@ class StorageDb implements StorageInterface
         $requete = $this->pdo->prepare("INSERT INTO storage (name, total, ref) VALUES (:name, :total, :ref)");
         $requete->execute([':ref' => $this->ref, ':name' => $name, ':total' => (float) $total]);
 
-        $this->storage[$name] = $this->storage[$name] ?? 0 + $total;
+        $this->storage[$name] = ($this->storage[$name] ?? 0) + $total;
     }
 
     public function total(): float
@@ -34,6 +32,6 @@ class StorageDb implements StorageInterface
         foreach ($resultats as $value) {
             $total = $total + $value['total'];
         }
-        return round($total, PRECISION);
+        return round($total, (int) $_ENV['PRECISION']);
     }
 }
