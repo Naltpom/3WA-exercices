@@ -13,6 +13,7 @@ class Init
     public function __construct()
     {
         $this->createPdo();
+        session_start();
     }
 
     public function resetPdo()
